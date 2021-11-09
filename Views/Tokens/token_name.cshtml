@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Portfolio_Krypto.Models.TokenName>
+
+@{
+    ViewData["Title"] = "token_name";
+}
+
+<h1>token_name</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<html>
+    <head>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+    </head>
+
+    <div class="container">
+
+
+        <div class="row-fluid">
+            <select class="selectpicker" data-live-search="true">
+                @*@foreach (TokenName i in Model)
+                {
+                    <option value="@i.name"> @i.name</option>
+                }*@
+                @for (int i = 0; i < 2000; i++){
+                <option value=" @i"> @i</option>
+            }
+
+            </select>
+
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+    </html>
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.symbol)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.id)
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+         
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.symbol)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id)
+                    </td>
+   
+       
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

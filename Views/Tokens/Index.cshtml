@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Portfolio_Krypto.Models.TokenExpanded>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Twoje Tokeny</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table" >
+    <thead>
+        <tr>
+            <th>
+                Token
+            </th>
+            <th>
+                Cena zakupu
+            </th>
+            <th>
+                Posiadane tokeny
+            </th>
+            <th>
+                Dzień zakupu
+            </th>
+            <th>
+                Obecna cena
+            </th>
+            <th>
+                Profit
+            </th>
+            <th>
+               Wartosc
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+            <td>
+                <img src=@Html.DisplayFor(ModelItem=>item.image) width="30" ,height="30">
+                <a class="text-dark" asp-action="Details" asp-route-id="@item.id"> @Html.DisplayFor(modelItem => item.tokenName)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price_buy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_buy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.current_price)
+            </td>
+            <td>
+                @if (item.profit > 0)
+                {
+                    <span style="color:green">@Html.DisplayFor(modelItem => item.profit)%</span>
+
+                }
+                else
+                {
+                    <span style="color:red">@Html.DisplayFor(modelItem => item.profit)% </span>
+
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.worth)$
+            </td>
+            <td>
+                @*<a asp-action="Details" asp-route-id="@item.id">Details</a> |*@
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
