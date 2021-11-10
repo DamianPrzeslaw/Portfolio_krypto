@@ -1,43 +1,51 @@
-﻿@model Portfolio_Krypto.Models.TokenExpanded
+﻿@model IEnumerable<Portfolio_Krypto.Models.TokenExpanded>
+
 
 @{
     ViewData["Title"] = "Details";
 }
+<style>
+    dd {color: white}
+    h1 {color: white}
+    h2{color: black}
+    dt {color: White}
+    a {color: whitesmoke}
+</style>
 
-<h1>Details</h1>
+<h1>Wiecej informacji</h1>
+<h2>
+    <img src=@Model.First().image width="50" ,height="50">
+    @Model.First().tokenName
+</h2>
 
+<div class="tiles">
+    @foreach (var item in Model)
+    {
+    <div class="tiles-item">
+        <dl class="row">
+            <dt class="col-sm-2">
+                Data zakupu
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(modelItem => item.date_buy)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(modelItem => item.price_buy)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(modelItem => item.price_buy)$
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(modelItem => item.current_price)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(modelItem => item.current_price)$
+            </dd>
+            </dl>
+    </div>
+    }
+    </div>
 <div>
-    <h4>Token</h4>
-    <hr />
-    <dl class="row">
-
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.tokenName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.tokenName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.price_buy)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.price_buy)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.amount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.amount)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.date_buy)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.date_buy)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
+    @*<a asp-action="Edit" asp-route-id="@Model.id">Edit</a>*@ |
     <a asp-action="Index">Back to List</a>
 </div>

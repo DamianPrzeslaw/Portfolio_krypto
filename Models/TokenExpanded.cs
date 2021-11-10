@@ -10,7 +10,6 @@ namespace Portfolio_Krypto.Models
 {
     public class TokenExpanded:Token
     {
-        public string id_geco { get; set; }
         public double worth { get; set; }
         public double current_price { get; set; }
 
@@ -26,7 +25,7 @@ namespace Portfolio_Krypto.Models
             price_buy = i.price_buy;
             amount = i.amount;
             date_buy = i.date_buy;
-        
+            id_geco = i.id_geco;    
         }
         public TokenExpanded() { }
 

@@ -1,19 +1,27 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
-
-.serch_select {
-    max-width:400px;
-    margin:80px auto;
-}
-.serch_select select {
-    width:100%
+.tiles {
+    display: flex;
+    flex-wrap: wrap;
     
 }
+
+.tiles-item {
+    width: 45%;
+    padding: 10px;
+    /*  color: #fff;*/
+    border: 2px solid #212529;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 1%;
+}
+
 
 a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
+
 }
 
 /* Provide sufficient contrast against white background */
@@ -70,8 +78,10 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
-/*    background: linear-gradient(to bottom,#3C3735,#3C4932,#7A8650,#BDC38A,#DDE0B0);*/
-/*  background-image:url(../webb.png);*/
+    /*    background: linear-gradient(to bottom,#3C3735,#3C4932,#7A8650,#BDC38A,#DDE0B0);*/
+    /*  background-image:url(../webb.png);*/
+  background-image: url(../footer_lodyas.png);
+   /*/* background-image: url(../prism.png);*/
 }
 .footer {
   position: absolute;

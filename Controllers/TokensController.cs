@@ -31,8 +31,8 @@ namespace Portfolio_Krypto.Controllers
                 TokenExpanded temp = new TokenExpanded(item);
                 try
                 {
-                    var idss = from tokenname in _context.TokenName where tokenname.name == item.tokenName select tokenname.id;
-                    temp.id_geco = idss.First();
+                    //var idss = from tokenname in _context.TokenName where tokenname.name == item.tokenName select tokenname.id;
+                    //temp.id_geco = idss.First();
                     await temp.update();
                 }
                 catch(Exception e)
@@ -45,23 +45,30 @@ namespace Portfolio_Krypto.Controllers
         }
 
         // GET: Tokens/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string? name)
         {
-            if (id == null)
+            if (name == null)
             {
                 return NotFound();
             }
 
-            var token = await  _context.Token
-                .FirstOrDefaultAsync(m => m.id == id);
-            TokenExpanded tokenExpanded = new TokenExpanded(token);
-            await tokenExpanded.update();
-            if (token == null)
+            //var token = await  _context.Token
+            //    .FirstOrDefaultAsync(m => m.tokenName == name);
+            List<TokenExpanded> lista = new List<TokenExpanded>();
+            var listatokenow = from token in _context.Token where token.tokenName == name select token;
+            foreach (var item in listatokenow)
+            {
+                TokenExpanded tokenExpanded = new TokenExpanded(item);
+                await tokenExpanded.update();
+                lista.Add(tokenExpanded);
+            }
+         
+            if (lista == null)
             {
                 return NotFound();
             }
 
-            return View(tokenExpanded);
+            return View(lista);
         }
 
         public async Task< IActionResult> token_name()
@@ -82,11 +89,14 @@ namespace Portfolio_Krypto.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,userName,smartContract,tokenName,price_buy,amount,date_buy")] Token token)
+        public async Task<IActionResult> Create([Bind("id,userName,tokenName,price_buy,amount,date_buy,id_geco")] Token token)
         {
             if (ModelState.IsValid)
             {
                 token.userName = User.Identity.Name;
+                var idss = from tokenname in _context.TokenName where tokenname.name == token.tokenName select tokenname.id;
+                token.id_geco = idss.First();
+
                 _context.Add(token);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

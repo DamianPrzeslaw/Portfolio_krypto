@@ -4,6 +4,13 @@
     ViewData["Title"] = "Index";
 }
 
+<style>
+    td {color: white}
+    h1{color:white}
+    th {  color: White   }
+    a {color: whitesmoke  }
+</style>
+
 <h1>Twoje Tokeny</h1>
 
 <p>
@@ -16,22 +23,16 @@
                 Token
             </th>
             <th>
-                Cena zakupu
+                Wartosc
             </th>
             <th>
                 Posiadane tokeny
-            </th>
-            <th>
-                Dzień zakupu
             </th>
             <th>
                 Obecna cena
             </th>
             <th>
                 Profit
-            </th>
-            <th>
-               Wartosc
             </th>
             <th></th>
         </tr>
@@ -42,16 +43,13 @@
 
             <td>
                 <img src=@Html.DisplayFor(ModelItem=>item.image) width="30" ,height="30">
-                <a class="text-dark" asp-action="Details" asp-route-id="@item.id"> @Html.DisplayFor(modelItem => item.tokenName)</a>
+                <a class="text-light" asp-action="Details" asp-route-name="@item.tokenName"> @Html.DisplayFor(modelItem => item.tokenName)</a>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.price_buy)
+                @Html.DisplayFor(modelItem => item.worth)$
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.amount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.date_buy)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.current_price)
@@ -65,14 +63,9 @@
                 else
                 {
                     <span style="color:red">@Html.DisplayFor(modelItem => item.profit)% </span>
-
                 }
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.worth)$
-            </td>
-            <td>
-                @*<a asp-action="Details" asp-route-id="@item.id">Details</a> |*@
                 <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
             </td>
         </tr>
