@@ -3,30 +3,54 @@ for details on configuring this project to bundle and minify static web assets. 
 .tiles {
     display: flex;
     flex-wrap: wrap;
-    
 }
 
 .tiles-item {
     width: 45%;
     padding: 10px;
-    /*  color: #fff;*/
     border: 2px solid #212529;
     border-radius: 10px;
     padding: 20px;
     margin: 1%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.dana {
+    min-width: 33.33%;
+    flex-wrap: wrap;
+}
+dd {
+    color: white
 }
 
+h2 {
+    color:black;
+}
+
+dt {
+    color: White
+}
+
+a {
+    color: whitesmoke
+}
+h1{
+    color:whitesmoke;
+}
+.form-group{
+    color:white;
+}
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    /*color: #0366d6;*/
+    color: white;
 }
 
 .btn-primary {

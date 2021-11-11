@@ -4,48 +4,74 @@
 @{
     ViewData["Title"] = "Details";
 }
-<style>
-    dd {color: white}
-    h1 {color: white}
-    h2{color: black}
-    dt {color: White}
-    a {color: whitesmoke}
-</style>
+
 
 <h1>Wiecej informacji</h1>
 <h2>
     <img src=@Model.First().image width="50" ,height="50">
-    @Model.First().tokenName
-</h2>
+    @Model.First().tokenName @Model.First().current_price $
 
-<div class="tiles">
-    @foreach (var item in Model)
-    {
-    <div class="tiles-item">
-        <dl class="row">
-            <dt class="col-sm-2">
-                Data zakupu
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.date_buy)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(modelItem => item.price_buy)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.price_buy)$
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(modelItem => item.current_price)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.current_price)$
-            </dd>
-            </dl>
+</h2>
+    <div class="tiles">
+        @foreach (var item in Model)
+        {
+        <div class="tiles-item">
+            <div class="dana">
+                <dl>
+                    <dt class="col-sm">Data zakupu </dt>
+                    <dd class="col-1">
+                        @Html.DisplayFor(modelItem => item.date_buy)
+                    </dd>
+                </dl>
+            </div>
+            <div class="dana">
+                <dl>
+                    <dt class="col-sm"> Cena kupna</dt>
+                    <dd class="col-1">
+                        @Html.DisplayFor(modelItem => item.price_buy)$
+                    </dd>
+                </dl>
+            </div>
+            <div class="dana">
+                <dl>
+                    <dt class="col-sm"> Ilość tokenu</dt>
+                    <dd class="col-1">
+                        @Html.DisplayFor(modelItem => item.amount)
+                    </dd>
+                </dl>
+            </div>
+            <div class="dana">
+                <dl>
+                    <dt class="col-sm">Wartość</dt>
+                    <dd class="col-1">
+                        @Html.DisplayFor(modelItem => item.worth)$
+                    </dd>
+                </dl>
+            </div>
+            <div class="dana">
+                <dl>
+                    <dt class="col-sm"> Profit</dt>
+                    <dd class="col-1">
+                        @if (item.profit > 0)
+                        {
+                            <span style="color:green">@Html.DisplayFor(modelItem => item.profit)%</span>
+
+                        }
+                        else
+                        {
+                            <span style="color:red">@Html.DisplayFor(modelItem => item.profit)% </span>
+                        }
+                    </dd>
+                </dl>
+            </div>
+            <div class="dana">
+                <a class="text-light" asp-action="Edit" asp-route-id="@item.id"> Edit</a>
+            </div>
+        </div>
+
+        }
     </div>
-    }
+    <div>
+        @*<a asp-action="Edit" asp-route-id="@Model.id">Edit</a>*@ |
+        <a asp-action="Index">Back to List</a>
     </div>
-<div>
-    @*<a asp-action="Edit" asp-route-id="@Model.id">Edit</a>*@ |
-    <a asp-action="Index">Back to List</a>
-</div>
