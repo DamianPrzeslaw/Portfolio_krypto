@@ -44,7 +44,7 @@
                 <dl>
                     <dt class="col-sm">Wartość</dt>
                     <dd class="col-1">
-                        @Html.DisplayFor(modelItem => item.worth)$
+                        @Html.DisplayFor(modelItem => item.worth_current)$
                     </dd>
                 </dl>
             </div>
@@ -54,24 +54,33 @@
                     <dd class="col-1">
                         @if (item.profit > 0)
                         {
-                            <span style="color:green">@Html.DisplayFor(modelItem => item.profit)%</span>
+                            <span style="color:green">
+                        @Html.DisplayFor(modelItem => item.profit_dolar)$
+                        @Html.DisplayFor(modelItem => item.profit)%
+                            </span>
 
                         }
                         else
                         {
-                            <span style="color:red">@Html.DisplayFor(modelItem => item.profit)% </span>
+                    <span style="color:red">
+                        @Html.DisplayFor(modelItem => item.profit_dolar)$
+                        @Html.DisplayFor(modelItem => item.profit)%
+                    </span>
                         }
                     </dd>
                 </dl>
             </div>
             <div class="dana">
-                <a class="text-light" asp-action="Edit" asp-route-id="@item.id"> Edit</a>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.id">Edytuj</a>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.id">Usuń</a>
+
+
             </div>
         </div>
 
         }
     </div>
     <div>
-        @*<a asp-action="Edit" asp-route-id="@Model.id">Edit</a>*@ |
-        <a asp-action="Index">Back to List</a>
+       
+        <a class="btn btn-outline-secondary" asp-action="Index">Powrót</a>
     </div>

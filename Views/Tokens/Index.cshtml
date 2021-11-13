@@ -14,7 +14,7 @@
 <h1>Twoje Tokeny</h1>
 
 <p>
-    <a asp-action="Create" >Create New</a>
+    <a class="btn btn-outline-primary" asp-action="Create" >Dodaj</a>
 </p>
 <table class="table" >
     <thead>
@@ -34,7 +34,7 @@
             <th>
                 Profit
             </th>
-            <th></th>
+          
         </tr>
     </thead>
     <tbody>
@@ -46,7 +46,7 @@
                 <a class="text-light" asp-action="Details" asp-route-name="@item.tokenName"> @Html.DisplayFor(modelItem => item.tokenName)</a>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.worth)$
+                @Html.DisplayFor(modelItem => item.worth_current)$
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.amount)
@@ -64,9 +64,6 @@
                 {
                     <span style="color:red">@Html.DisplayFor(modelItem => item.profit)% </span>
                 }
-            </td>
-            <td>
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
             </td>
         </tr>
 }

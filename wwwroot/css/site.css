@@ -19,24 +19,13 @@ for details on configuring this project to bundle and minify static web assets. 
     min-width: 33.33%;
     flex-wrap: wrap;
 }
-dd {
-    color: white
-}
 
-h2 {
-    color:black;
-}
-
-dt {
-    color: White
-}
-
-a {
-    color: whitesmoke
-}
-h1{
-    color:whitesmoke;
-}
+dd {color: white}
+dt {  color: white}
+a { color: white;}
+h1{ color:whitesmoke;}
+h2 { color:black;}
+h3{color:whitesmoke;}
 .form-group{
     color:white;
 }

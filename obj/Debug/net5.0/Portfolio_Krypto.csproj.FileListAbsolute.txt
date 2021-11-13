@@ -209,5 +209,4 @@ C:\Users\Damian\Desktop\C++\C#\Portfolio_Krypto\Portfolio_Krypto\bin\Debug\net5.
 C:\Users\Damian\Desktop\C++\C#\Portfolio_Krypto\Portfolio_Krypto\bin\Debug\net5.0\System.Web.WebPages.Razor.dll
 C:\Users\Damian\Desktop\C++\C#\Portfolio_Krypto\Portfolio_Krypto\bin\Debug\net5.0\System.Web.WebPages.dll
 C:\Users\Damian\Desktop\C++\C#\Portfolio_Krypto\Portfolio_Krypto\bin\Debug\net5.0\Microsoft.Web.Infrastructure.dll
-C:\Users\Damian\Desktop\C++\C#\Portfolio_Krypto\Portfolio_Krypto\obj\Debug\net5.0\Razor\Views\Tokens\token_name.cshtml.g.cs
 C:\Users\Damian\Desktop\C++\C#\Portfolio_Krypto\Portfolio_Krypto\bin\Debug\net5.0\CoinGecko.dll

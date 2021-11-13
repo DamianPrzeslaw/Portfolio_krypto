@@ -22,17 +22,16 @@ namespace Portfolio_Krypto.Controllers
         // GET: Tokens
         public async Task<IActionResult> Index()
         {
+
             List<TokenExpanded> lista = new List<TokenExpanded>();
-            List<Token> listatoken = new List<Token>();
             TokenName temp1 = new TokenName();
-            listatoken = await _context.Token.ToListAsync();
+            //   listatoken = await _context.Token.ToListAsync();
+          var  listatoken = from token in _context.Token where token.userName == User.Identity.Name select token;
             foreach (var item in listatoken)
             {
                 TokenExpanded temp = new TokenExpanded(item);
                 try
                 {
-                    //var idss = from tokenname in _context.TokenName where tokenname.name == item.tokenName select tokenname.id;
-                    //temp.id_geco = idss.First();
                     await temp.update();
                 }
                 catch(Exception e)
@@ -41,6 +40,7 @@ namespace Portfolio_Krypto.Controllers
                 }
                 lista.Add(temp);
             }
+
             return View(lista);
         }
 
@@ -55,7 +55,7 @@ namespace Portfolio_Krypto.Controllers
             //var token = await  _context.Token
             //    .FirstOrDefaultAsync(m => m.tokenName == name);
             List<TokenExpanded> lista = new List<TokenExpanded>();
-            var listatokenow = from token in _context.Token where token.tokenName == name select token;
+            var listatokenow = from token in _context.Token where token.tokenName == name && token.userName == User.Identity.Name select token;
             foreach (var item in listatokenow)
             {
                 TokenExpanded tokenExpanded = new TokenExpanded(item);

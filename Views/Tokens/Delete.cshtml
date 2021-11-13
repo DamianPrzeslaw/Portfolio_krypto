@@ -4,49 +4,34 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete this?</h3>
+<h3>Czy jesteś pewny że chcesz usunąć?</h3>
 <div>
-    <h4>Token</h4>
-    <hr />
+    <h2>@Html.DisplayFor(model => model.tokenName)</h2>
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.userName)
+        <dt class="col-sm-2">
+            Data zakupu
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.userName)
-        </dd>
-
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.tokenName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.tokenName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.price_buy)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.price_buy)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.amount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.amount)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.date_buy)
-        </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.date_buy)
         </dd>
+        <dt class="col-sm-2">
+            Cena kupna
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.price_buy)
+        </dd>
+        <dt class="col-sm-2">
+            Ilość tokenów
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.amount)
+        </dd>
+
     </dl>
-    
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Tak" class="btn btn-danger" /> |
+        <a class="btn btn-success" asp-action="Details" asp-route-name="@Model.tokenName">Nie</a>
     </form>
 </div>

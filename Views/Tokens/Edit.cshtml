@@ -4,37 +4,26 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Edycja</h1>
 
-<h4>Token</h4>
-<hr />
+<h2>@Model.tokenName</h2>
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="id" />
             <div class="form-group">
-                <label asp-for="userName" class="control-label"></label>
-                <input asp-for="userName" class="form-control" />
-                <span asp-validation-for="userName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="tokenName" class="control-label"></label>
-                <input asp-for="tokenName" class="form-control" />
-                <span asp-validation-for="tokenName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="price_buy" class="control-label"></label>
+                <label asp-for="price_buy" class="control-label">Cena kupna</label>
                 <input asp-for="price_buy" class="form-control" />
                 <span asp-validation-for="price_buy" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="amount" class="control-label"></label>
+                <label asp-for="amount" class="control-label">Ilość tokenów</label>
                 <input asp-for="amount" class="form-control" />
                 <span asp-validation-for="amount" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="date_buy" class="control-label"></label>
+                <label asp-for="date_buy" class="control-label">Data</label>
                 <input asp-for="date_buy" class="form-control" />
                 <span asp-validation-for="date_buy" class="text-danger"></span>
             </div>
@@ -46,7 +35,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-outline-secondary" asp-action="Index">Powrót</a>
 </div>
 
 @section Scripts {

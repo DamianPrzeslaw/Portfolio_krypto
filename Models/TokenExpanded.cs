@@ -10,10 +10,11 @@ namespace Portfolio_Krypto.Models
 {
     public class TokenExpanded:Token
     {
-        public double worth { get; set; }
+        public double worth_current { get; set; }
         public double current_price { get; set; }
 
         public double profit { get; set; }
+        public double profit_dolar { get; set; }
         public Uri image { get; set; }
 
    
@@ -39,7 +40,8 @@ namespace Portfolio_Krypto.Models
                 image = result[0].Image;
                 profit = (current_price / price_buy)-1;
                 profit = Math.Round( profit *100,2);
-                worth = Math.Round(current_price * amount,2);
+                worth_current = Math.Round(current_price * amount,2);
+                profit_dolar = Math.Round(worth_current - (price_buy * amount));
             }
             catch (Exception e)
             {
