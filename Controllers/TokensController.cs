@@ -11,7 +11,7 @@ using Portfolio_Krypto.Models;
 
 namespace Portfolio_Krypto.Controllers
 {
-    [Authorize]
+   [Authorize]
     public class TokensController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -27,7 +27,6 @@ namespace Portfolio_Krypto.Controllers
 
             List<TokenExpanded> lista = new List<TokenExpanded>();
             TokenName temp1 = new TokenName();
-            //   listatoken = await _context.Token.ToListAsync();
           var  listatoken = from token in _context.Token where token.userName == User.Identity.Name select token;
             foreach (var item in listatoken)
             {
@@ -54,8 +53,6 @@ namespace Portfolio_Krypto.Controllers
                 return NotFound();
             }
 
-            //var token = await  _context.Token
-            //    .FirstOrDefaultAsync(m => m.tokenName == name);
             List<TokenExpanded> lista = new List<TokenExpanded>();
             var listatokenow = from token in _context.Token where token.tokenName == name && token.userName == User.Identity.Name select token;
             foreach (var item in listatokenow)
